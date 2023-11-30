@@ -1,0 +1,92 @@
+@use '@/app/base';
+
+.hero {
+	position: relative;
+}
+
+.heroImage {
+	width: 100%;
+	height: 100vh;
+}
+
+.heroContentContainer {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(
+		to right,
+		transparent,
+		transparent,
+		rgba(black, 0.5),
+		rgba(black, 0.8)
+	);
+
+	* {
+		color: white;
+	}
+}
+
+.heroContent {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: 2rem;
+
+	> div {
+		grid-column: 8 / 13;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+}
+
+.desktopSection,
+.mobileSection {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.mobileSection {
+	padding: 10vw;
+	display: none;
+
+	* {
+		color: white;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.heroContentContainer {
+		justify-content: end;
+
+		background-image: linear-gradient(
+			to bottom,
+			transparent,
+			transparent,
+			rgba(black, 0.5),
+			rgba(black, 0.8)
+		);
+	}
+
+	.heroContent {
+		> div {
+			grid-column: span 12;
+		}
+	}
+
+	.desktopSection {
+		display: none;
+	}
+
+	.mobileSection {
+		display: flex;
+	}
+}
+
+@media screen and (max-width: 768px) {
+}

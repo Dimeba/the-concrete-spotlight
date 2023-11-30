@@ -8,8 +8,38 @@
 	padding: 0;
 	transition: 0.3s;
 	text-wrap: balance;
+	line-height: 1.5;
 }
 
 html {
 	scroll-behavior: smooth !important;
+}
+
+// sections
+.sectionContainer {
+	width: 90%;
+}
+
+// fonts
+h1 {
+	font-size: 3rem;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+@media screen and (max-width: 1024px) {
+	.sectionContainer {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 2rem;
+	}
 }

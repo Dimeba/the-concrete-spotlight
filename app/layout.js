@@ -1,7 +1,10 @@
-import { Heebo } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import './globals.scss'
 
-const heebo = Heebo({ subsets: ['latin'] })
+const roboto = Roboto({
+	subsets: ['latin'],
+	weight: ['100', '300', '400', '500', '700', '900']
+})
 
 export const metadata = {
 	title: 'The Concrete Podcast',
@@ -14,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={heebo.className}>{children}</body>
+			<body className={roboto.className}>{children}</body>
 		</html>
 	)
 }
