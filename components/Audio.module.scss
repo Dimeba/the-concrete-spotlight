@@ -1,11 +1,12 @@
 .audio {
 	padding: 1rem 0;
 	width: 100%;
-	position: absolute;
-	bottom: 0;
 	display: flex;
 	justify-content: center;
-	margin-top: 10vw;
+
+	* {
+		color: white;
+	}
 }
 
 .controls {

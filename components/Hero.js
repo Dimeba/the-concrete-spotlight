@@ -2,7 +2,7 @@
 import styles from './Hero.module.scss'
 
 // components
-import ImageContainer from './ImageContainer'
+import Image from 'next/image'
 import SubscribeSection from './SubscribeSection'
 import Audio from './Audio'
 
@@ -13,14 +13,16 @@ const Hero = ({ colorLight, colorDark }) => {
 
 	return (
 		<>
-			<section className='hero'>
-				<ImageContainer
+			<section className={styles.hero}>
+				<Image
 					src={'/peter-hero.jpg'}
-					className={styles.heroImage}
+					fill
 					priority
-					position='top'
+					style={{ objectFit: 'cover', objectPosition: 'top', zIndex: '-1' }}
+					quality={100}
 					alt='Episode Preview Image'
 				/>
+				<div></div>
 				<div className={styles.heroContentContainer}>
 					<div className={`sectionContainer ${styles.heroContent}`}>
 						<div>
@@ -38,9 +40,8 @@ const Hero = ({ colorLight, colorDark }) => {
 							</div>
 						</div>
 					</div>
-
-					<Audio color={colorDark} />
 				</div>
+				<Audio color={colorDark} />
 			</section>
 			<div
 				className={styles.mobileSection}
