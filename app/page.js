@@ -3,6 +3,7 @@ import { createClient } from 'contentful'
 
 // components
 import Hero from '@/components/Hero'
+import CategoryInfo from '@/components/CategoryInfo'
 
 export default async function Home() {
 	const client = createClient({
@@ -26,7 +27,7 @@ export default async function Home() {
 				colorDark='#0f3838'
 				episode={homeEpisode[0]}
 			/>
-			{/* <div>The Concrete Spotlight</div> */}
+			<CategoryInfo />
 		</main>
 	)
 }

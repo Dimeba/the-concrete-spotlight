@@ -1,0 +1,36 @@
+@use '@/app/base';
+
+.categoryInfo {
+	padding: 5vw 0;
+	display: flex;
+	justify-content: center;
+}
+
+.content {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: 2rem;
+	align-items: center;
+}
+
+.largeText {
+	grid-column: span 4;
+}
+
+.regularText {
+	grid-column: 7 / 13;
+}
+
+@media screen and (max-width: 1024px) {
+	.categoryInfo {
+		padding: 10vw 0;
+	}
+
+	.largeText,
+	.regularText {
+		grid-column: span 12;
+	}
+}
+
+@media screen and (max-width: 768px) {
+}

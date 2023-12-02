@@ -14,10 +14,16 @@ export const metadata = {
 		'New York City, New York, Real Estate, Brokers, Brokerage, Branding, Marketing, Sales, Investment Sales, Research, Podcast'
 }
 
+// components
+import Footer from '@/components/Footer'
+
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={roboto.className}>{children}</body>
+			<body className={roboto.className}>
+				{children}
+				<Footer />
+			</body>
 		</html>
 	)
 }
