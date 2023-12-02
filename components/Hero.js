@@ -5,43 +5,46 @@ import styles from './Hero.module.scss'
 import Image from 'next/image'
 import SubscribeSection from './SubscribeSection'
 import Audio from './Audio'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 // hooks
 
-const Hero = ({ colorLight, colorDark }) => {
+const Hero = ({ colorLight, colorDark, episode }) => {
 	const tempAbout = `Discover real estate's inner workings with Peter Carrillo, Principal and Senior Managing Director at HKS Real Estate Advisors. Uncover investment strategies, trends, and challenges shaping today's market. Benefit from Peter's seasoned insights to enhance your investment approach, whether you're an expert or newcomer. Tune in to refine your strategies with this industry authority.`
 
 	return (
 		<>
 			<section className={styles.hero}>
 				<Image
-					src={'/peter-hero.jpg'}
+					src={'https:' + episode.fields.cover.fields.file.url}
 					fill
 					priority
 					style={{ objectFit: 'cover', objectPosition: 'top', zIndex: '-1' }}
 					quality={100}
-					alt='Episode Preview Image'
+					alt='Episode Cover Image'
 				/>
 				<div></div>
 				<div className={styles.heroContentContainer}>
 					<div className={`sectionContainer ${styles.heroContent}`}>
 						<div>
-							<p>Episode #29</p>
+							<p>Episode #{episode.fields.number}</p>
 							<div>
 								<h1 style={{ marginBottom: '1rem', color: colorLight }}>
-									Navigating Real Estate Investment Strategies with Peter
-									Carillo
+									{episode.fields.title}
 								</h1>
-								<p>AUGUST 3RD, 2023</p>
+								<p>{episode.fields.date.toUpperCase()}</p>
 							</div>
 							<div className={styles.desktopSection}>
-								<p>{tempAbout}</p>
+								{documentToReactComponents(episode.fields.summary)}
 								<SubscribeSection />
 							</div>
 						</div>
 					</div>
 				</div>
-				<Audio color={colorDark} />
+				<Audio
+					color={colorDark}
+					audio={'https:' + episode.fields.audio.fields.file.url}
+				/>
 			</section>
 			<div
 				className={styles.mobileSection}

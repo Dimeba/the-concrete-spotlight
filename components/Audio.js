@@ -10,7 +10,7 @@ import Image from 'next/image'
 import { useHexToRgba } from '@/hooks/useHexToRgba'
 import { useState, useRef } from 'react'
 
-const Audio = ({ color }) => {
+const Audio = ({ color, audio }) => {
 	// background color
 	const rgba = useHexToRgba(color, 0.6)
 
@@ -34,9 +34,7 @@ const Audio = ({ color }) => {
 
 	return (
 		<div className={styles.audio} style={{ backgroundColor: rgba }}>
-			<audio ref={audioRef}>
-				<source src='/audio-placeholder.mp3' type='audio/mp3' />
-			</audio>
+			<audio ref={audioRef} src={audio} />
 
 			<div className={`sectionContainer ${styles.controls}`}>
 				<Image
