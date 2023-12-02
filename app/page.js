@@ -3,7 +3,8 @@ import { createClient } from 'contentful'
 
 // components
 import Hero from '@/components/Hero'
-import CategoryInfo from '@/components/CategoryInfo'
+import CategoryInfo from '@/components/TwoColumnBanner'
+import Episodes from '@/components/Episodes'
 
 export default async function Home() {
 	const client = createClient({
@@ -28,6 +29,7 @@ export default async function Home() {
 				episode={homeEpisode[0]}
 			/>
 			<CategoryInfo />
+			<Episodes />
 		</main>
 	)
 }

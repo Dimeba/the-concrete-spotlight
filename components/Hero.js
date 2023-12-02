@@ -10,8 +10,6 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 // hooks
 
 const Hero = ({ colorLight, colorDark, episode }) => {
-	const tempAbout = `Discover real estate's inner workings with Peter Carrillo, Principal and Senior Managing Director at HKS Real Estate Advisors. Uncover investment strategies, trends, and challenges shaping today's market. Benefit from Peter's seasoned insights to enhance your investment approach, whether you're an expert or newcomer. Tune in to refine your strategies with this industry authority.`
-
 	return (
 		<>
 			<section className={styles.hero}>
@@ -30,7 +28,7 @@ const Hero = ({ colorLight, colorDark, episode }) => {
 							<p>Episode #{episode.fields.number}</p>
 							<div>
 								<h1 style={{ marginBottom: '1rem', color: colorLight }}>
-									{episode.fields.title}
+									{episode.fields.title} with {episode.fields.guest}
 								</h1>
 								<p>{episode.fields.date.toUpperCase()}</p>
 							</div>
@@ -50,7 +48,7 @@ const Hero = ({ colorLight, colorDark, episode }) => {
 				className={styles.mobileSection}
 				style={{ backgroundColor: colorLight }}
 			>
-				<p>{tempAbout}</p>
+				{documentToReactComponents(episode.fields.summary)}
 				<SubscribeSection />
 			</div>
 		</>

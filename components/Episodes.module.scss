@@ -1,0 +1,114 @@
+@use '@/app/base';
+
+.episodes {
+	display: flex;
+	min-height: 100vh;
+}
+
+.category {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	padding: 5vw 2rem;
+
+	* {
+		color: white;
+		text-align: center;
+	}
+}
+
+.categoryImage {
+	width: 60%;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	overflow: hidden;
+	background-image: linear-gradient(to right, transparent, rgba(black, 0.5));
+}
+
+// categories
+
+.deals {
+	background-color: base.$dark-green;
+
+	.subtitle {
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		border: 1px solid base.$light-green;
+	}
+
+	h4 {
+		color: base.$light-green;
+	}
+}
+
+.marketing {
+	background-color: base.$dark-purple;
+
+	.subtitle {
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		border: 1px solid base.$light-purple;
+	}
+
+	h4 {
+		color: base.$light-purple;
+	}
+}
+
+.branding {
+	background-color: base.$dark-pink;
+
+	.subtitle {
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		border: 1px solid base.$light-pink;
+	}
+
+	h4 {
+		color: base.$light-pink;
+	}
+}
+
+.insights {
+	background-color: base.$dark-red;
+
+	.subtitle {
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		border: 1px solid base.$light-red;
+	}
+
+	h4 {
+		color: base.$light-red;
+	}
+}
+
+.mobileLink {
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.episodes {
+		flex-direction: column;
+		min-height: auto;
+	}
+
+	.category {
+		padding: 10vw;
+		align-items: start;
+
+		* {
+			display: none;
+		}
+
+		.mobileLink {
+			display: block;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+}

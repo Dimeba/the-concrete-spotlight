@@ -10,18 +10,6 @@ const Footer = () => {
 		<footer className={styles.footer}>
 			<div className={`sectionContainer ${styles.footerContent}`}>
 				<div className={styles.footerColumn}>
-					<Link href='/about' aria-label='About Us'>
-						<p>About Us</p>
-					</Link>
-					<Link href='/contact' aria-label='Contact Us'>
-						<p>Contact Us</p>
-					</Link>
-					<Link href='/subscribe' aria-label='Subscribe'>
-						<p>Subscribe</p>
-					</Link>
-				</div>
-
-				<div className={styles.footerColumn}>
 					<Link href='/deals' aria-label='Deals'>
 						<p>Deals</p>
 					</Link>
@@ -33,6 +21,18 @@ const Footer = () => {
 					</Link>
 					<Link href='/insights' aria-label='Insights'>
 						<p>Insights</p>
+					</Link>
+				</div>
+
+				<div className={styles.footerColumn}>
+					<Link href='/about' aria-label='About Us'>
+						<p>About Us</p>
+					</Link>
+					<Link href='/contact' aria-label='Contact Us'>
+						<p>Contact Us</p>
+					</Link>
+					<Link href='/subscribe' aria-label='Subscribe'>
+						<p>Subscribe</p>
 					</Link>
 				</div>
 
@@ -72,6 +72,23 @@ const Footer = () => {
 						</p>
 						<p>© 2023 DeSophy. All rights reserved.</p>
 					</div>
+				</div>
+
+				<div className={`${styles.footerColumn} ${styles.desophyInfoMobile}`}>
+					<Link href='https://desophy.com' aria-label='DeSophy Website'>
+						<Image
+							src='https://desophy.com/logo-white.svg'
+							width={100}
+							height={24}
+							alt='DeSophy logo'
+						/>
+					</Link>
+
+					<p>
+						Inspired by Culture
+						<br />& Storytelling
+					</p>
+					<p>© 2023 DeSophy. All rights reserved.</p>
 				</div>
 			</div>
 		</footer>

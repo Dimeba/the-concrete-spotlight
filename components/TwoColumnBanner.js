@@ -1,7 +1,7 @@
 // styles
-import styles from './CategoryInfo.module.scss'
+import styles from './TwoColumnBanner.module.scss'
 
-const CategoryInfo = () => {
+const TwoColumnBanner = () => {
 	return (
 		<section className={styles.categoryInfo}>
 			<div className={`sectionContainer ${styles.content}`}>
@@ -26,4 +26,4 @@ const CategoryInfo = () => {
 	)
 }
 
-export default CategoryInfo
+export default TwoColumnBanner
