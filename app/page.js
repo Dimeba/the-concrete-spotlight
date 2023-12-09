@@ -3,7 +3,7 @@ import { createClient } from 'contentful'
 
 // components
 import Hero from '@/components/Hero'
-import CategoryInfo from '@/components/TwoColumnBanner'
+import TwoColumnBanner from '@/components/TwoColumnBanner'
 import Episodes from '@/components/Episodes'
 
 export default async function Home() {
@@ -12,24 +12,37 @@ export default async function Home() {
 		accessToken: process.env.accessToken
 	})
 
+	const homepage = await client.getEntries({
+		content_type: 'homepage'
+	})
+
 	const episodes = await client.getEntries({
 		content_type: 'episodes'
 	})
 
-	const homeEpisode = episodes.items.filter(
-		episode => episode.fields.homeFeatured == true
+	const categories = await client.getEntries({
+		content_type: 'categories'
+	})
+
+	const homeEpisode = homepage.items[0].fields.featuredEpisode
+
+	const homeCategory = homepage.items[0].fields.categories.find(
+		category => category.fields.title == homeEpisode.fields.category
 	)
 
 	return (
 		<main>
-			<Hero
-				color='#a1bd00'
-				colorLight='#a1bd00'
-				colorDark='#0f3838'
-				episode={homeEpisode[0]}
+			<Hero episode={homeEpisode} category={homeCategory} />
+
+			<TwoColumnBanner
+				title={homeCategory.fields.subtitle}
+				description={homeCategory.fields.description}
 			/>
-			<CategoryInfo />
-			<Episodes />
+
+			<Episodes
+				episodes={episodes.items}
+				categories={homepage.items[0].fields.categories.slice(0, 4)}
+			/>
 		</main>
 	)
 }

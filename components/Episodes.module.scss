@@ -1,112 +1,145 @@
 @use '@/app/base';
 
 .episodes {
-	display: flex;
-	min-height: 100vh;
-}
-
-.category {
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-	padding: 5vw 2rem;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	width: 100%;
 
 	* {
 		color: white;
+	}
+}
+
+.category {
+	position: relative;
+	grid-column: span 3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	padding: 5vw;
+	cursor: pointer;
+
+	* {
 		text-align: center;
+		z-index: 1;
+	}
+
+	.subtitle {
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		border-width: 1px;
+		border-style: solid;
+	}
+
+	.categoryBackground {
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		background-image: linear-gradient(to bottom, transparent, rgba(black, 0.5));
+		z-index: 0;
+	}
+}
+
+.category:hover {
+	.categoryBackground {
+		display: block;
 	}
 }
 
 .categoryImage {
-	width: 60%;
+	width: 100%;
 	aspect-ratio: 1 / 1;
 	border-radius: 50%;
 	overflow: hidden;
-	background-image: linear-gradient(to right, transparent, rgba(black, 0.5));
-}
-
-// categories
-
-.deals {
-	background-color: base.$dark-green;
-
-	.subtitle {
-		border-radius: 5px;
-		padding: 0.5rem 1rem;
-		border: 1px solid base.$light-green;
-	}
-
-	h4 {
-		color: base.$light-green;
-	}
-}
-
-.marketing {
-	background-color: base.$dark-purple;
-
-	.subtitle {
-		border-radius: 5px;
-		padding: 0.5rem 1rem;
-		border: 1px solid base.$light-purple;
-	}
-
-	h4 {
-		color: base.$light-purple;
-	}
-}
-
-.branding {
-	background-color: base.$dark-pink;
-
-	.subtitle {
-		border-radius: 5px;
-		padding: 0.5rem 1rem;
-		border: 1px solid base.$light-pink;
-	}
-
-	h4 {
-		color: base.$light-pink;
-	}
-}
-
-.insights {
-	background-color: base.$dark-red;
-
-	.subtitle {
-		border-radius: 5px;
-		padding: 0.5rem 1rem;
-		border: 1px solid base.$light-red;
-	}
-
-	h4 {
-		color: base.$light-red;
-	}
+	background-image: linear-gradient(
+		to bottom right,
+		transparent,
+		rgba(black, 0.5)
+	);
 }
 
 .mobileLink {
 	display: none;
 }
 
-@media screen and (max-width: 1024px) {
-	.episodes {
-		flex-direction: column;
-		min-height: auto;
-	}
+// Recent Episodes
+.recentEpisodes {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5vw 0;
+	gap: 5vw;
 
+	* {
+		color: white;
+	}
+}
+
+.episode {
+	grid-column: span 3;
+	display: flex;
+	flex-direction: column;
+	gap: 5vw;
+}
+
+.episodeCover {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+}
+
+.episodeInfo {
+	padding: 0 5vw;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.episodeLink {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	.arrow {
+		display: flex;
+		align-items: center;
+
+		hr {
+			width: 2rem;
+			height: 1px;
+		}
+	}
+}
+
+.episodeLink:hover {
+	.arrow {
+		hr {
+			width: 4rem;
+			height: 1px;
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
 	.category {
+		grid-column: span 12;
 		padding: 10vw;
 		align-items: start;
 
-		* {
+		> * {
 			display: none;
 		}
 
 		.mobileLink {
 			display: block;
 		}
+	}
+
+	.recentEpisodes {
+		display: none;
+		padding: 10vw 0;
 	}
 }
 

@@ -21,6 +21,10 @@ html {
 	width: 90%;
 }
 
+.defaultSection {
+	padding: 5vw;
+}
+
 // fonts
 h1 {
 	font-size: 3rem;
@@ -48,9 +52,39 @@ a {
 	color: inherit;
 }
 
+// buttons
+.arrowButton {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	.arrow {
+		display: flex;
+		align-items: center;
+
+		hr {
+			width: 2rem;
+			height: 1px;
+		}
+	}
+}
+
+.arrowButton:hover {
+	.arrow {
+		hr {
+			width: 4rem;
+			height: 1px;
+		}
+	}
+}
+
 @media screen and (max-width: 1024px) {
 	.sectionContainer {
 		width: 80%;
+	}
+
+	.defaultSection {
+		padding: 10vw;
 	}
 }
 
