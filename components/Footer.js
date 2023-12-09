@@ -43,8 +43,8 @@ const Footer = () => {
 					<Link href='/#' aria-label='LinkedIn'>
 						<p>LinkedIn</p>
 					</Link>
-					<Link href='/#' aria-label='You Tube'>
-						<p>You Tube</p>
+					<Link href='/#' aria-label='YouTube'>
+						<p>YouTube</p>
 					</Link>
 				</div>
 

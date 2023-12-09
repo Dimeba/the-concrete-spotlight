@@ -1,0 +1,121 @@
+@use '@/app/base';
+
+.hero {
+	margin-top: 112px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding: 10vw 5vw;
+	width: 100%;
+
+	* {
+		color: white;
+	}
+}
+
+// contact form
+.contactForm {
+	padding: 5vw;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: 2rem;
+	align-items: center;
+
+	form {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-gap: 1rem;
+		grid-column: 7 / 13;
+
+		input,
+		select,
+		textarea {
+			padding: 0.5rem 1rem;
+			font-family: inherit;
+			font-size: inherit;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			line-height: inherit;
+			box-sizing: border-box;
+			outline: none;
+			box-shadow: none;
+			border: 1px solid base.$dark-gray;
+		}
+
+		input,
+		select {
+			grid-column: span 6;
+		}
+
+		textarea {
+			grid-column: span 12;
+			height: 150px;
+		}
+
+		label {
+			display: none;
+		}
+
+		button {
+			grid-column: span 12;
+			color: white;
+			background-color: base.$dark-green;
+		}
+	}
+}
+
+.formText {
+	grid-column: span 4;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+// banner
+
+.banner {
+	padding: 5vw;
+	background-color: base.$light-green;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+
+	* {
+		color: white;
+		text-align: center;
+	}
+
+	button {
+		background-color: base.$dark-green;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.hero,
+	.banner,
+	.contactForm {
+		padding: 10vw;
+	}
+
+	.contactForm {
+		form {
+			grid-column: span 12;
+			max-width: 80vw;
+
+			input,
+			select {
+				grid-column: span 12;
+			}
+		}
+	}
+
+	.formText {
+		grid-column: span 12;
+		max-width: 80vw;
+	}
+}
+
+@media screen and (max-width: 768px) {
+}
