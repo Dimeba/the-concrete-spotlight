@@ -1,0 +1,77 @@
+@use '@/app/base';
+
+.header {
+	padding: 0 5vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	height: 112px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: white;
+	z-index: 10;
+	gap: 2rem;
+
+	nav {
+		display: flex;
+		align-items: flex-start;
+		height: 100%;
+		gap: 2rem;
+
+		p {
+			padding: 3rem 1rem 1rem 1rem;
+			cursor: pointer;
+		}
+
+		p:hover {
+			background-color: base.$light-green;
+			color: white;
+		}
+	}
+}
+
+.logoAndHamburger {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 0;
+}
+
+.logo {
+	width: 100px;
+	aspect-ratio: 1.25 / 1;
+}
+
+.hamburger {
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.header {
+		padding: 0 10vw;
+		flex-direction: column;
+
+		nav {
+			display: none;
+			width: 100%;
+
+			p {
+				padding: 1rem 0;
+				border-top: 1px solid black;
+				width: 100%;
+			}
+		}
+	}
+
+	.logoAndHamburger {
+		width: 100%;
+	}
+
+	.hamburger {
+		display: block;
+	}
+}
+
+@media screen and (max-width: 768px) {
+}

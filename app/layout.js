@@ -11,16 +11,21 @@ export const metadata = {
 	description: `NYC-based online interview series 
   where real estate professionals step into the limelight.`,
 	keywords:
-		'New York City, New York, Real Estate, Brokers, Brokerage, Branding, Marketing, Sales, Investment Sales, Research, Podcast'
+		'New York City, New York, Real Estate, Brokers, Brokerage, Branding, Marketing, Sales, Investment Sales, Research, Podcast',
+	icons: {
+		icon: '/favicon.svg'
+	}
 }
 
 // components
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
 			<body className={roboto.className}>
+				<Header />
 				{children}
 				<Footer />
 			</body>

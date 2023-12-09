@@ -45,6 +45,11 @@
 		padding: 10vw 0;
 	}
 
+	.footerContent {
+		row-gap: 2rem;
+		column-gap: 0;
+	}
+
 	.footerColumn {
 		gap: 0.6rem;
 	}
@@ -53,6 +58,7 @@
 @media screen and (max-width: 768px) {
 	.footerColumn {
 		grid-column: span 6;
+		max-width: 40vw;
 	}
 
 	.desophyInfo {
@@ -62,5 +68,6 @@
 	.desophyInfoMobile {
 		display: flex;
 		grid-column: span 12;
+		max-width: 80vw;
 	}
 }

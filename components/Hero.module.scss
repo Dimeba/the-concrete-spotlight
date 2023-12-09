@@ -2,7 +2,8 @@
 
 .hero {
 	position: relative;
-	min-height: 100vh;
+	min-height: calc(100vh - 112px);
+	margin-top: 112px;
 	background-image: linear-gradient(
 		to right,
 		transparent,
@@ -73,6 +74,7 @@
 	.heroContent {
 		> div {
 			grid-column: span 12;
+			max-width: 80vw;
 		}
 	}
 
