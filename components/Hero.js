@@ -28,12 +28,14 @@ const Hero = ({ episode, category }) => {
 				<div className={styles.heroContentContainer}>
 					<div className={`sectionContainer ${styles.heroContent}`}>
 						<div>
-							<p>Episode #{episode.fields.number}</p>
+							<p>
+								Episode #{episode.fields.number} / {episode.fields.date}
+							</p>
 							<div>
 								<h1 style={{ marginBottom: '1rem', color: colors.light }}>
 									{episode.fields.title} with {episode.fields.guest}
 								</h1>
-								<p>{episode.fields.date.toUpperCase()}</p>
+								{/* <p>{episode.fields.date.toUpperCase()}</p> */}
 							</div>
 							<div className={styles.desktopSection}>
 								{documentToReactComponents(episode.fields.summary)}
