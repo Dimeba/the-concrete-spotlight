@@ -63,7 +63,7 @@ a {
 		align-items: center;
 
 		hr {
-			width: 2rem;
+			width: 1rem;
 			height: 1px;
 		}
 	}
@@ -72,7 +72,8 @@ a {
 .arrowButton:hover {
 	.arrow {
 		hr {
-			width: 4rem;
+			display: block;
+			width: 2rem;
 			height: 1px;
 		}
 	}

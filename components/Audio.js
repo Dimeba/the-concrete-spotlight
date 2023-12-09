@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 // hooks
 import { useHexToRgba } from '@/hooks/useHexToRgba'
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const Audio = ({ color, audio }) => {
 	// background color
@@ -31,6 +31,23 @@ const Audio = ({ color, audio }) => {
 			setIsPlaying(!isPlaying)
 		}
 	}
+
+	// Handeling audio ending
+	useEffect(() => {
+		const audio = audioRef.current
+		if (!audio) return
+
+		const handleAudioEnd = () => {
+			setIsPlaying(false)
+			setIcon('/play.svg')
+		}
+
+		audio.addEventListener('ended', handleAudioEnd)
+
+		return () => {
+			audio.removeEventListener('ended', handleAudioEnd)
+		}
+	}, [audioRef])
 
 	return (
 		<div className={styles.audio} style={{ backgroundColor: rgba }}>

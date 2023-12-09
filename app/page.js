@@ -32,17 +32,29 @@ export default async function Home() {
 
 	return (
 		<main>
+			{/* Featured Episode */}
 			<Hero episode={homeEpisode} category={homeCategory} />
 
+			{/* About featured episode category */}
 			<TwoColumnBanner
 				title={homeCategory.fields.subtitle}
 				description={homeCategory.fields.description}
+				richText
 			/>
 
+			{/* Categories & Recent Episodes */}
 			<Episodes
 				episodes={episodes.items}
 				categories={homepage.items[0].fields.categories.slice(0, 4)}
 			/>
+
+			{/* Bottom banner if it exists */}
+			{homepage.items[0].fields.banner && (
+				<TwoColumnBanner
+					title={homepage.items[0].fields.banner.fields.title}
+					description={homepage.items[0].fields.banner.fields.description}
+				/>
+			)}
 		</main>
 	)
 }

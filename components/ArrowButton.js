@@ -7,7 +7,7 @@ const ArrowButton = ({ color, children, isLarge }) => {
 				<p style={{ color: color }}>{children}</p>
 			)}
 			<div className='arrow'>
-				<hr style={{ color: color }} />
+				<hr style={{ borderColor: color }} />
 				<div
 					style={{
 						width: '5px',

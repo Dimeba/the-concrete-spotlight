@@ -42,6 +42,7 @@ const Episodes = ({ categories, episodes }) => {
 			<RecentEpisodes
 				category={activeCategory.fields.title}
 				episodes={getRecentEpisodes()}
+				showBottomLink
 			/>
 		</>
 	)
