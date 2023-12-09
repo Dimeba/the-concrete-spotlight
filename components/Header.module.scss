@@ -47,6 +47,68 @@
 	display: none;
 }
 
+// SubMenu
+
+.subMenu {
+	position: absolute;
+	background-color: white;
+	width: calc(1024px - 10vw);
+	top: 88px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 1px solid base.$dark-gray;
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: 2rem;
+
+	> div {
+		grid-column: span 6;
+
+		a:first-of-type {
+			.subMenuUrl {
+				padding-top: 0;
+			}
+		}
+
+		a:last-of-type {
+			.subMenuUrl {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+		}
+
+		h2 {
+			font-size: 1rem;
+		}
+	}
+}
+
+.subMenuUrl {
+	border-bottom: 1px solid base.$dark-gray;
+	padding: 0.5rem 0;
+}
+
+.subMenuRight {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: flex-end;
+}
+
+.mobileSubMenu {
+	padding-bottom: 2rem;
+	display: none;
+	flex-direction: column;
+	gap: 0.5rem;
+	a {
+		p {
+			border: none !important;
+			padding: 0 1rem !important;
+		}
+	}
+}
+
 @media screen and (max-width: 1024px) {
 	.header {
 		padding: 0 10vw;
@@ -61,6 +123,11 @@
 				border-top: 1px solid black;
 				width: 100%;
 			}
+
+			p:hover {
+				background-color: transparent;
+				color: base.$dark-gray;
+			}
 		}
 	}
 
@@ -70,6 +137,14 @@
 
 	.hamburger {
 		display: block;
+	}
+
+	.subMenu {
+		display: none;
+	}
+
+	.mobileSubMenu {
+		display: flex;
 	}
 }
 

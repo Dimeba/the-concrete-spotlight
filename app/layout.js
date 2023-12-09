@@ -17,15 +17,27 @@ export const metadata = {
 	}
 }
 
+// contentful
+import { createClient } from 'contentful'
+
 // components
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+	const client = createClient({
+		space: process.env.space,
+		accessToken: process.env.accessToken
+	})
+
+	const homepage = await client.getEntries({
+		content_type: 'homepage'
+	})
+
 	return (
 		<html lang='en'>
 			<body className={roboto.className}>
-				<Header />
+				<Header categories={homepage.items[0].fields.categories.slice(0, 4)} />
 				{children}
 				<Footer />
 			</body>
