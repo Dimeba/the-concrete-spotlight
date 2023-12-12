@@ -2,8 +2,8 @@
 
 .hero {
 	position: relative;
-	min-height: calc(100vh - 112px);
-	margin-top: 112px;
+	min-height: 100vh;
+	padding-top: 112px;
 	background-image: linear-gradient(
 		to right,
 		transparent,

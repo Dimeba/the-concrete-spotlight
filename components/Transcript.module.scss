@@ -1,0 +1,49 @@
+@use '@/app/base';
+
+.transcript {
+	padding: 5vw;
+	display: flex;
+	flex-direction: column;
+	gap: 5vw;
+}
+
+.quote {
+	p {
+		font-size: 2rem;
+		font-weight: 400;
+		text-align: center;
+	}
+}
+
+.transcriptText {
+	> div {
+		max-height: 80vh;
+		overflow-y: scroll;
+		padding-right: 1rem;
+	}
+}
+
+.text {
+	column-count: 2;
+	gap: 2rem;
+
+	p {
+		text-wrap: wrap;
+		margin-bottom: 1rem;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.transcript {
+		padding: 10vw;
+		gap: 10vw;
+	}
+
+	.text {
+		column-count: 1;
+		gap: 0;
+	}
+}
+
+@media screen and (max-width: 768px) {
+}

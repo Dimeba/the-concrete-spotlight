@@ -40,9 +40,9 @@ const Episodes = ({ categories, episodes }) => {
 				))}
 			</section>
 			<RecentEpisodes
-				category={activeCategory.fields.title}
+				category={activeCategory}
 				episodes={getRecentEpisodes()}
-				showBottomLink
+				isHomepage
 			/>
 		</>
 	)

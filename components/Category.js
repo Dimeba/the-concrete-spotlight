@@ -24,7 +24,12 @@ const Category = ({ title, episode, setActiveCategory }) => {
 					className={styles.categoryImage}
 				/>
 				<h3>{episode.fields.guest}</h3>
-				<Link href={''} aria-label='Link to the episode'>
+				<Link
+					href={`/episodes/${episode.fields.title
+						.toLowerCase()
+						.replace(/\s+/g, '-')}`}
+					aria-label='Link to the episode'
+				>
 					<h4 style={{ color: colors.light }}>{episode.fields.title}</h4>
 				</Link>
 				<a

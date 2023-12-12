@@ -1,0 +1,22 @@
+@use '@/app/base';
+
+.filter {
+	background-color: transparent;
+	border-radius: 5px;
+	border: 1px solid white;
+	padding: 0.5rem 1rem;
+	font-family: inherit;
+	font-size: inherit;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	line-height: inherit;
+	box-sizing: border-box;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+
+	option {
+		color: base.$dark-gray;
+	}
+}

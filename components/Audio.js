@@ -7,12 +7,13 @@ import styles from './Audio.module.scss'
 import Image from 'next/image'
 
 // hooks
-import { useHexToRgba } from '@/hooks/useHexToRgba'
 import { useState, useEffect, useRef } from 'react'
+import { useHexToRgba } from '@/hooks/useHexToRgba'
+import { useFormatDate } from '@/hooks/useFormatDate'
 
-const Audio = ({ color, audio }) => {
+const Audio = ({ colors, episode, category }) => {
 	// background color
-	const rgba = useHexToRgba(color, 0.6)
+	const rgba = useHexToRgba(colors.dark, 0.8)
 
 	// controls
 	const [isPlaying, setIsPlaying] = useState(false)
@@ -51,7 +52,10 @@ const Audio = ({ color, audio }) => {
 
 	return (
 		<div className={styles.audio} style={{ backgroundColor: rgba }}>
-			<audio ref={audioRef} src={audio} />
+			<audio
+				ref={audioRef}
+				src={'https:' + episode.fields.audio.fields.file.url}
+			/>
 
 			<div className={`sectionContainer ${styles.controls}`}>
 				<Image
@@ -65,9 +69,10 @@ const Audio = ({ color, audio }) => {
 
 				<div>
 					<p>
-						Navigating Real Estate Investment Strategies with Peter Carillo |{' '}
-						<span style={{ opacity: 0.7 }}>
-							Marketing - Episode 34, August 13th
+						{episode.fields.title} with {episode.fields.guest} |{' '}
+						<span style={{ color: colors.light }}>
+							{category} - Episode #{episode.fields.number},{' '}
+							{useFormatDate(episode.fields.date)}
 						</span>
 					</p>
 				</div>

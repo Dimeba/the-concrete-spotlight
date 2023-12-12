@@ -7,6 +7,7 @@ import styles from './Contact.module.scss'
 // components
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import OneColumnBanner from '@/components/OneColumnBanner'
 
 export default async function Contact() {
 	const client = createClient({
@@ -62,9 +63,11 @@ export default async function Contact() {
 						<option disabled hidden value='defaultOption'>
 							How can we help?
 						</option>
-						<option value='I need a branding'>I want to be on the show</option>
-						<option value='I need a website'>I want to partner up</option>
-						<option value='I need a brochure'>
+						<option value='I want to be on the show'>
+							I want to be on the show
+						</option>
+						<option value='I want to partner up'>I want to partner up</option>
+						<option value='I have a question about your services'>
 							I have a question about your services
 						</option>
 						<option value='Other'>Other</option>
@@ -112,14 +115,11 @@ export default async function Contact() {
 			</section>
 
 			{/* Banner */}
-			<section className={styles.banner}>
-				<h2>{pageContent.fields.banner.fields.title}</h2>
-				<a href='#contact-form'>
-					<button>
-						{pageContent.fields.banner.fields.buttonText.toUpperCase()}
-					</button>
-				</a>
-			</section>
+			<OneColumnBanner
+				url='#contact-form'
+				buttonText={pageContent.fields.banner.fields.buttonText.toUpperCase()}
+				title={pageContent.fields.banner.fields.title}
+			/>
 		</main>
 	)
 }

@@ -1,0 +1,49 @@
+@use '@/app/base';
+
+.recommendedEpisode {
+	padding: 5vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+
+	* {
+		color: white;
+	}
+}
+
+.episode {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	width: 1024px;
+	max-width: 80vw;
+}
+
+.episodeCover {
+	grid-column: span 6;
+	aspect-ratio: 1 / 1;
+}
+
+.content {
+	grid-column: span 6;
+	padding: 2rem;
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+	.recommendedEpisode {
+		padding: 10vw;
+	}
+
+	.episodeCover,
+	.content {
+		grid-column: span 12;
+		max-width: 80vw;
+	}
+}
+
+@media screen and (max-width: 768px) {
+}

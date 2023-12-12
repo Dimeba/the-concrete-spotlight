@@ -9,6 +9,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 // hooks
 import { useColors } from '@/hooks/useColors'
+import { useFormatDate } from '@/hooks/useFormatDate'
 
 const Hero = ({ episode, category }) => {
 	const colors = useColors(category.fields.title)
@@ -21,7 +22,7 @@ const Hero = ({ episode, category }) => {
 					fill
 					priority
 					style={{ objectFit: 'cover', objectPosition: 'top', zIndex: '-1' }}
-					quality={100}
+					quality={80}
 					alt='Episode Cover Image'
 				/>
 				<div></div>
@@ -29,7 +30,8 @@ const Hero = ({ episode, category }) => {
 					<div className={`sectionContainer ${styles.heroContent}`}>
 						<div>
 							<p>
-								Episode #{episode.fields.number} / {episode.fields.date}
+								Episode #{episode.fields.number} /{' '}
+								{useFormatDate(episode.fields.date)}
 							</p>
 							<div>
 								<h1 style={{ marginBottom: '1rem', color: colors.light }}>
@@ -45,8 +47,9 @@ const Hero = ({ episode, category }) => {
 					</div>
 				</div>
 				<Audio
-					color={colors.dark}
-					audio={'https:' + episode.fields.audio.fields.file.url}
+					colors={colors}
+					episode={episode}
+					category={category.fields.title}
 				/>
 			</section>
 			<div

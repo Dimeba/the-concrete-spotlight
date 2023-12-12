@@ -66,7 +66,9 @@ const Header = ({ categories }) => {
 								href={`/${category.fields.title.toLowerCase()}`}
 								aria-label={`Link to ${category.fields.title} page`}
 							>
-								<p>{category.fields.title}</p>
+								<p onClick={() => setOpenSubMenu(false)}>
+									{category.fields.title}
+								</p>
 							</Link>
 						))}
 					</div>
@@ -93,6 +95,7 @@ const Header = ({ categories }) => {
 								<p
 									className={styles.subMenuUrl}
 									onMouseEnter={() => setHoveredCategory(category)}
+									onClick={() => setOpenSubMenu(false)}
 								>
 									{category.fields.title}
 								</p>

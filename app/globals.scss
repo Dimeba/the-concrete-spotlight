@@ -86,6 +86,38 @@ button {
 	}
 }
 
+// Scrollbar
+
+/* width */
+::-webkit-scrollbar {
+	-webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+	width: 5px;
+	position: relative;
+}
+
+::-webkit-scrollbar:horizontal {
+	height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #707070;
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: gray;
+}
+
 @media screen and (max-width: 1024px) {
 	.sectionContainer {
 		width: 80%;

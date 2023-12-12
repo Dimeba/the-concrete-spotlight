@@ -1,11 +1,10 @@
 @use '@/app/base';
 
 .hero {
-	margin-top: 112px;
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	padding: 10vw 5vw;
+	padding: calc(10vw + 112px) 5vw 10vw 5vw;
 	width: 100%;
 
 	* {
@@ -72,28 +71,11 @@
 	gap: 1rem;
 }
 
-// banner
-
-.banner {
-	padding: 5vw;
-	background-color: base.$light-green;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 2rem;
-
-	* {
-		color: white;
-		text-align: center;
-	}
-
-	button {
-		background-color: base.$dark-green;
-	}
-}
-
 @media screen and (max-width: 1024px) {
-	.hero,
+	.hero {
+		padding: calc(10vw + 112px) 10vw 10vw 10vw;
+	}
+
 	.banner,
 	.contactForm {
 		padding: 10vw;
