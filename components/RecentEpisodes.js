@@ -42,12 +42,12 @@ const RecentEpisodes = ({ category, episodes, isHomepage }) => {
 						{/* {!isHomepage &&
 							documentToReactComponents(category.fields.description)} */}
 					</div>
-					{!isHomepage && (
+					{/* {!isHomepage && (
 						<EpisodesFilter
 							episodes={episodes}
 							setFilteredEpisodes={setFilteredEpisodes}
 						/>
-					)}
+					)} */}
 				</div>
 				<div className={styles.episodes}>
 					{filteredEpisodes.map(episode => (

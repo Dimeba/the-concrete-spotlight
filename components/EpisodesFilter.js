@@ -10,20 +10,38 @@ const EpisodesFilter = ({ episodes, setFilteredEpisodes }) => {
 
 	// Getting unique dates
 	const getUniqueDates = episodes => {
-		const dateSet = new Set()
+		const dates = episodes.map(episode => new Date(episode.fields.date))
 
-		episodes.forEach(episode => {
-			const date = new Date(episode.fields.date)
-			const year = date.getFullYear()
-			const month = date.toLocaleString('default', { month: 'long' })
-			dateSet.add(`${month} ${year}`)
+		const uniqueDates = Array.from(
+			new Set(
+				dates.map(
+					date =>
+						`${date.toLocaleString('default', {
+							month: 'long'
+						})} ${date.getFullYear()}`
+				)
+			)
+		)
+
+		return uniqueDates.sort((a, b) => {
+			const dateA = new Date(
+				a.split(' ')[1],
+				new Date(Date.parse(a.split(' ')[0] + ' 1, 2012')).getMonth()
+			)
+			const dateB = new Date(
+				b.split(' ')[1],
+				new Date(Date.parse(b.split(' ')[0] + ' 1, 2012')).getMonth()
+			)
+			return dateB - dateA
 		})
-
-		return Array.from(dateSet)
 	}
 
 	useEffect(() => {
-		setDates(getUniqueDates(episodes))
+		const uniqueDates = getUniqueDates(episodes)
+		setDates(uniqueDates)
+		if (uniqueDates.length > 0) {
+			setSelectedDate(uniqueDates[0]) // Set to the most recent date
+		}
 	}, [episodes])
 
 	const filterEpisodesByDate = (episodes, selectedDate) => {
@@ -50,10 +68,10 @@ const EpisodesFilter = ({ episodes, setFilteredEpisodes }) => {
 			className={styles.filter}
 			onChange={e => handleDateSelect(e.target.value)}
 		>
-			<option value=''>Filter Episodes</option>
+			{/* <option value=''>Filter by Month</option> */}
 			{dates.map((date, index) => (
 				<option key={index} value={date}>
-					{date}
+					Filter by: {date}
 				</option>
 			))}
 		</select>

@@ -5,6 +5,7 @@ import { createClient } from 'contentful'
 import Hero from '@/components/Hero'
 import TwoColumnBanner from '@/components/TwoColumnBanner'
 import RecentEpisodes from '@/components/RecentEpisodes'
+import Archive from '@/components/Archive'
 import OneColumnBanner from '@/components/OneColumnBanner'
 
 // hooks
@@ -31,6 +32,14 @@ export default async function Category({ params }) {
 	const episodes = await client.getEntries({
 		content_type: 'episodes'
 	})
+
+	const getFilteredEpisodes = () => {
+		const filteredEpisodes = episodes.items.filter(
+			item => item.fields.category == category.fields.title
+		)
+
+		return filteredEpisodes
+	}
 
 	const getRecentEpisodes = () => {
 		const recentEpisodes = episodes.items
@@ -63,11 +72,16 @@ export default async function Category({ params }) {
 			/>
 
 			{/* Recent Episodes */}
-			<RecentEpisodes
-				category={category}
-				episodes={getRecentEpisodes()}
-				// showBottomLink
-			/>
+			<RecentEpisodes category={category} episodes={getRecentEpisodes()} />
+
+			{/* Archive */}
+			{category.fields.showArchive && (
+				<Archive
+					colors={colors}
+					category={category}
+					episodes={getFilteredEpisodes()}
+				/>
+			)}
 
 			{/* Banner */}
 			<OneColumnBanner
