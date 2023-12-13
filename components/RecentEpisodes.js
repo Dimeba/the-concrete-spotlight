@@ -75,6 +75,7 @@ const RecentEpisodes = ({ category, episodes, isHomepage }) => {
 								<Link
 									href={`/episodes/${episode.fields.title
 										.toLowerCase()
+										.replace(/[^a-z0-9\s-]/g, '')
 										.replace(/\s+/g, '-')}`}
 									aria-label='Link to the full episode'
 								>

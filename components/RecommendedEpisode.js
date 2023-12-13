@@ -28,6 +28,7 @@ const RecommendedEpisode = ({ episode, colors }) => {
 					<Link
 						href={`/episodes/${episode.fields.title
 							.toLowerCase()
+							.replace(/[^a-z0-9\s-]/g, '')
 							.replace(/\s+/g, '-')}`}
 					>
 						<ArrowButton color={colors.light}>Watch full episode</ArrowButton>

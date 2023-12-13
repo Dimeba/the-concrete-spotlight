@@ -40,6 +40,7 @@ const Archive = ({ episodes, category, colors }) => {
 						<Link
 							href={`/episodes/${episode.fields.title
 								.toLowerCase()
+								.replace(/[^a-z0-9\s-]/g, '')
 								.replace(/\s+/g, '-')}`}
 						>
 							<ArrowButton color={'white'}>Watch full episode</ArrowButton>

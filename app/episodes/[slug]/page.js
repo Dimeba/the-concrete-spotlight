@@ -26,7 +26,10 @@ export async function generateStaticParams() {
 	})
 
 	return episodes.items.map(episode => ({
-		slug: episode.fields.title.toLowerCase().replace(/\s+/g, '-')
+		slug: episode.fields.title
+			.toLowerCase()
+			.replace(/[^a-z0-9\s-]/g, '')
+			.replace(/\s+/g, '-')
 	}))
 }
 
@@ -40,7 +43,11 @@ export default async function Episode({ params }) {
 
 	// current episode
 	const episode = episodes.items.find(
-		item => item.fields.title.toLowerCase().replace(/\s+/g, '-') == slug
+		item =>
+			item.fields.title
+				.toLowerCase()
+				.replace(/[^a-z0-9\s-]/g, '')
+				.replace(/\s+/g, '-') == slug
 	)
 
 	// all categories
